@@ -4,6 +4,10 @@ import * as connection from '../connection.js';
 export class SensorRepository {
 
     async create(sensor) {
+        let error = sensor.validateSync();
+        if (error) {
+            throw error;
+        }
         return await sensor.save();
     }
 

@@ -6,12 +6,12 @@ const SensorSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        max: 20
+        max: [20, 'Name is too long']
     },
     serialNumber: {
         type: String,
         required: true,
-        max: 20
+        max: [50, 'Serial number is too long']
     },
     createdAt: {
         type: Date,
